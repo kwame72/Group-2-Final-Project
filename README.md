@@ -1,2 +1,2 @@
 # YonkersAirportExpress
-Web site to manage bus service from Yonkers to Airports
+Website to manage bus service from Yonkers to New York City Airports
