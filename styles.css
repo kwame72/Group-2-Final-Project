@@ -1,10 +1,74 @@
-p{
+p {
     color: green;
     text-align: center;
     background-color: orange;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-}  
+}
 
 body {
-    background-color:antiquewhite;
+    background-color: #87AE73;
+    font-family: Arial;
+}
+
+/* Style for the navigation bar */
+nav {
+    display: flex;
+    
+    background-color: steelblue;
+    padding: 10px;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap; /* Ensures the list items wrap when needed */
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav ul li {
+    position: relative;
+    padding: 10px 20px;
+    cursor: pointer;
+    flex: 1 1 auto; /* Allows items to shrink and grow as needed */
+}
+
+nav ul li a {
+    color: Black;
+    text-decoration: none;
+}
+
+nav ul li:hover {
+    background-color: #555;
+}
+
+.services-class {
+    color: black;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color:steelblue;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.submenu li {
+    padding: 5px 10px;
+}
+
+.submenu li a {
+    color: black;
+    text-decoration: none;
+}
+
+.submenu li:hover {
+    background-color: #555;
+}
+
+li:hover .submenu {
+    display: block;
 }

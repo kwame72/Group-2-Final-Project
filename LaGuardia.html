@@ -3,11 +3,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="navbar"></div>
+    <script>
+        // Load and insert the shared navigation bar before the page is rendered
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('shared-navbar-template.html');
+            const data = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const template = doc.getElementById('shared-navbar-template');
+            if (template) {
+                document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+            }
+        });
+    </script>
+    <div></div>
     <p>LaGuardia Airport - colloquially known as LaGuardia or simply LGA - is a civil airport in East Elmhurst, Queens, New York City, situated on the northwestern shore of Long Island, bordering Flushing Bay. Covering 680 acres as of January 1, 2025, the facility was established in 1929, and began operating as a public airport in 1939. It is named after Fiorello H. La Guardia, a former mayor of New York City.</p>
-    <a href="index.html" alt="Home">Home</a>
     <br/>
     <p>The Yonkers Airport Express bus service operates daily with the following schedule from Yonkers, NY to LaGuardia Airport</p>
     <p>Departure times from Yonkers - 6:00 AM, 9:00 AM, 12:00 PM, 3:00 PM, 6:00 PM, and 9:00 PM.</p>

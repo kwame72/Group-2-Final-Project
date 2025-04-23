@@ -3,11 +3,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="navbar"></div>
+    <script>
+
+
+        // Load and insert the shared navigation bar before the page is rendered
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('shared-navbar-template.html');
+            const data = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const template = doc.getElementById('shared-navbar-template');
+            if (template) {
+                document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+            }
+        });
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const airPort = urlParams.get('airport');
+        document.getElementById('airport').textContent = `Air Port: ${airPort}`;
+
+    </script>
+    <p id="airport"></p>
+    
     <p>John F. Kennedy International Airport (JFK) is one of the busiest airports in the United States. It is located in Queens, New York, and is the primary international airport serving New York City. JFK is a hub for domestic and international flights, and is a major gateway to the United States. The airport is named after John F. Kennedy, the 35th President of the United States.</p>
-    <a href="index.html" alt="Home">🏠Home</a><br>
+
     <br/>
     <p>The Yonkers Airport Express bus service operates daily with the following schedule from Yonkers, NY to JFK Airport</p>
     <p>Departure times from Yonkers - 6:00 AM, 9:00 AM, 12:00 PM, 3:00 PM, 6:00 PM, and 9:00 PM.</p>
