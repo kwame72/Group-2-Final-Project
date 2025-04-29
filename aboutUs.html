@@ -8,24 +8,68 @@
 </head>
 <body>
 
-    <a href="index.html" alt="Home">🏠Home</a><br>
-    <a href="JFK.html" alt="JFK">✈JFK</a>
+    <div id="navbar"></div>
+    <script>
 
-<h1>💬About Us</h1>
-<p>Yonkers Airport Express is a family-owned business that has been providing transportation services to the Yonkers area for over 20 years. We are committed to providing safe, reliable, and affordable transportation to our customers. Our drivers are experienced professionals who are dedicated to getting you to your destination on time. Whether you need a ride to the airport, a special event, or just around town, Yonkers Airport Express has you covered. Contact us today to book your ride!</p>
+
+        // Load and insert the shared navigation bar before the page is rendered
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('shared-navbar-template.html');
+            const data = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const template = doc.getElementById('shared-navbar-template');
+            if (template) {
+                document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+            }
+        });
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const airPort = urlParams.get('airport');
+        document.getElementById('airport').textContent = `Air Port: ${airPort}`;
+
+    </script>
+
+    <!-- <a href="index.html" alt="Home">🏠Home</a><br>
+    <a href="JFK.html" alt="JFK">✈JFK</a>-->
+
+
+<img src="https://www.massport.com/sites/default/files/styles/max_1920x540/public/2023-09/Hero%201920x675_2.png?itok=2_raJ80R" alt="Yonkers Airport Express" style="width:100%; height:auto;">
+
+
+
+<h1 style="font-family: cursive;">💬About Us</h1>
+<p>Yonkers Airport Express is a family-owned business that has been providing transportation services to the Yonkers area for nearly 90 years. We are committed to providing safe, reliable, and affordable transportation to our customers. Our drivers are experienced professionals who are dedicated to getting you to your destination on time. Whether you need a ride to the airport, a special event, or just around town, Yonkers Airport Express has you covered. Contact us today to book your ride!</p>
+
+<style>
+    h2 {
+        font-family: cursive;
+        color: #333;
+        margin-top: 20px;
+    }
+</style>
 
 
 <h2>📜Our History</h2>
-<p>We have been operating this bus service for the people of Yonkers since 1935. We have taken pride in providing a safe, reliable ride service to our customers for nearly a Century. We take pride in being a part of the Yonkers community for more than any other transit company in the known universe. Despite this impressive feat we do our best to remain humble about our fruitful </p>
+<p>We have been operating this bus service for the people of Yonkers since 1935. We are proud to provide a safe, reliable ride service to our customers for nearly a Century. We take pride in being a part of the Yonkers community for more than any other transit company in the known universe. Despite this impressive feat we do our best to remain humble about our fruitful and long history fully integrated into the community of Yonkers.</p>
 
 <h2>👑Our Mission</h2>
-<p>We strive to provide the safest most luxurious ride to the airport you've ever experienced in your life. We feature reclining seats, cocktails, live music, and famous guest speakers including Snoop Dogg and Bill Clinton. We have been safely thrilling our passengers for years and it shows. We have the highest rating on Airport Express Ratings.</p>
+<p>We strive to provide the safest most luxurious ride to the airport you've ever experienced in your life. We feature reclining seats, air conditioning, cocktails, live music, and famous guest speakers including Snoop Dogg and Bill Clinton. We have been safely thrilling our passengers for years and it shows. We have the highest rating on Airport Express Ratings.</p>
 
 <h2>🚀Our Future</h2>
-<h3>Expansion to Newark Airport</h3>
-<h3>Start “Return” Trips from the Airports</h3>
+<ul>
+    <li>Expansion to Newark Airport</li>
+    <li>Start “Return” Trips from the Airports</li>
+    <li>Fortnite collaboration</li>
+</ul>
 
-
+<button id="back-to-top" onclick="scrollToTop()">Back to Top</button>
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 
 <p></p>
 
