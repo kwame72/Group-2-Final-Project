@@ -106,3 +106,13 @@ li:hover .submenu {
 .services-dropdown:hover .services-button {
     background-color: blue;
 }
+
+.contact {
+    background-color: steelblue;
+    padding: 10px 15px;
+    margin-left: 30px;
+    border-style: solid;
+    border-radius: 4px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+}
+

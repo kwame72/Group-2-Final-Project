@@ -3,27 +3,56 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Contact Us!</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <script src='main.js'></script>
 </head>
+<div id="navbar"></div>
+<script>
+    // Load and insert the shared navigation bar before the page is rendered
+    document.addEventListener('DOMContentLoaded', async () => {
+        const response = await fetch('shared-navbar-template.html');
+        const data = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        const template = doc.getElementById('shared-navbar-template');
+        if (template) {
+            document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+        }
+    });
+</script>
+<div></div>
+
+
     <p>
         <h1>Get In Touch With Our Team!</h1>
         
         <h3><a href="Index.html" alt="Index">HOME</a></h3>
-        
+        <h2>Give Us a Call!</h2> 
+            <p class="contact">+1 (914) 555-1234</p>
+        <h2>Send Us an Email!</h2>
+            <p class="contact">CustomerService@YAE.com</p>
+        <h2>Follow Us on Social Media!</h2>
+            <p class="contact">Facebook: YonkersAirportExpress</p>
+            <p class="contact">Instagram: @YonkersAirportExpress</p>
+            <p class="contact">Twitter: @YAE</p>
+        <p class="contact">LinkedIn: Yonkers Airport Express<br>
+        </p>
+        </h2>
+        <h2>Our Address:<br></h2>
+            <p class="contact">Yonkers Airport Express <br>123 Main St  <br>Yonkers, NY 1070</p>            
         <h2> Business Manager: Sean Smith</h2>
-            <p>s.smith@yae.com </p>
+            <p class="contact">s.smith@yae.com </p>
         <br>
         <h2> Operations Manager: Michael Morris</h2>
-             <p>m.morris@yae.com </p>
+             <p class="contact">m.morris@yae.com </p>
         <br>
         <h2> Customer Experience Manager: Daniel Effah Nyarko</h2>
-            <p>d.effahnyarko@yae.com</p>
+            <p class="contact">d.effahnyarko@yae.com</p>
         <br>
-        <h2> Human Reource Manager: Kenneth Ezell</h2>
-            <p>k.ezell@yae.com</p>
+        <h2> Human Resource Manager: Kenneth Ezell</h2>
+            <p class="contact">k.ezell@yae.com</p>
          
         
 
