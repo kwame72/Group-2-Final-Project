@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="aboutUs.css">
 </head>
 <body>
 
     <div id="navbar"></div>
     <script>
-
-
         // Load and insert the shared navigation bar before the page is rendered
         document.addEventListener('DOMContentLoaded', async () => {
             const response = await fetch('shared-navbar-template.html');
@@ -31,10 +30,6 @@
 
     </script>
 
-    <!-- <a href="index.html" alt="Home">🏠Home</a><br>
-    <a href="JFK.html" alt="JFK">✈JFK</a>-->
-
-
 <img src="https://www.massport.com/sites/default/files/styles/max_1920x540/public/2023-09/Hero%201920x675_2.png?itok=2_raJ80R" alt="Yonkers Airport Express" style="width:100%; height:auto;">
 
 <!-- HTML for Bus Animation-->
@@ -45,87 +40,13 @@
 <h1 style="font-family: cursive; background-color: steelblue; text-align: center;">💬About Us</h1>
 <p>Yonkers Airport Express is a family-owned business that has been providing transportation services to the Yonkers area for nearly 90 years. We are committed to providing safe, reliable, and affordable transportation to our customers. Our drivers are experienced professionals who are dedicated to getting you to your destination on time. Whether you need a ride to the airport, a special event, or just around town, Yonkers Airport Express has you covered. Contact us today to book your ride!</p>
 
-<style>
-    h2 {
-        font-family: cursive;
-        color: #333;
-        margin-top: 20px;
-        text-decoration: underline solid steelblue;
-        text-decoration-thickness: 2px;
-        text-underline-offset: 5px;
-    }
-
-    .future-plans {
-        list-style-type: none;
-        padding: 0;
-    }
-    .future-plans li {
-        background-color: #f2f2f2;
-        margin: 5px 0;
-        padding: 10px;
-        border-radius: 5px;
-        font-family: cursive;
-    }
-    #back-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: steelblue;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    #back-to-top:hover {
-        background-color: #0056b3;
-    }
-    #back-to-top:active {
-        background-color: #004085;
-    }
-    #back-to-top:focus {
-        outline: none;
-    }
-
-</style>
-
-<style>
-/* CSS for the bus animation */
-
-    .road {
-  width: 100%;
-  height: 100px;
-  position: relative;
-  overflow: hidden;
-}
-
-.bus {
-  font-size: 48px;
-  position: absolute;
-  top: 25px;
-  animation: drive 3s ease-out forwards;
-}
-
-@keyframes drive {
-  0% {
-    left: -100px;
-  }
-  100% {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-
-</style>
-
-
 <h2>📜Our History</h2>
 <p>We have been operating this bus service for the people of Yonkers since 1935. We are proud to provide a safe, reliable ride service to our customers for nearly a Century. We take pride in being a part of the Yonkers community for more than any other transit company in the known universe. Despite this impressive feat we do our best to remain humble about our fruitful and long history fully integrated into the community of Yonkers.</p>
 
 <h2>👑Our Mission</h2>
 <p>We strive to provide the safest most luxurious ride to the airport you've ever experienced in your life. We feature reclining seats, air conditioning, cocktails, live music, and famous guest speakers including Snoop Dogg, Bill Clinton, and Juicy J. We have been safely thrilling our passengers for years and it shows. We have the highest rating on Airport Express Ratings.</p>
 
+<!-- HTML for Celebrity Images -->
 <div class="flex-celeb-images">
     <img src="https://pbs.twimg.com/profile_images/1239440892664086529/iY0Z83Dr_400x400.jpg" alt="Bill Clinton" style="width: 200px; height: auto;">
     <img src="https://hips.hearstapps.com/hmg-prod/images/snoop_dogg_photo_by_estevan_oriol_archive_photos_getty_455616412.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*" alt="Snoop Dogg" style="width: 200px; height: auto;">
@@ -134,7 +55,7 @@
 
 <style>
     /* CSS for the celebrity images */
-    .flex-celeb-images {
+    /* .flex-celeb-images {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -152,10 +73,8 @@
     .flex-celeb-images img:active {
         transform: scale(0.95);
         transition: transform 0.1s;
-    }
+    } */
 </style>
-
-
 
 <h2>🚀Our Future</h2>
 <ul class="future-plans">
@@ -164,6 +83,7 @@
     <li>Fortnite collaboration</li>
 </ul>
 
+<!--BACK TO TOP BUTTON-->
 <button id="back-to-top" onclick="scrollToTop()">Back to Top</button>
 <script>
   function scrollToTop() {
