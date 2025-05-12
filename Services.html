@@ -21,7 +21,7 @@
             if (template) {
                 document.getElementById('navbar').appendChild(template.content.cloneNode(true));
             }
-        });        
+        });
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -61,103 +61,103 @@
             </script>
         </div>
         <div class="main-content">
-        <div class="form">
-            <form onsubmit="handleFormSubmit(event)">
-                <label for="pickupLocation">Pickup Locations:</label>
-                <select id="pickupLocation" name="pickupLocation" onchange="handleOptionSelect(this.value)">
-                    <option value="" disabled selected>Select Pickup Location ...</option>
-                    <option value="RailwayStation">Yonkers Railway Station</option>
-                    <option value="CrossCountyCenter">Cross County Center @ Macy's</option>
-                    <option value="BronxSubway">Yonkers Bronx Subway 238th Street</option>
-                </select>
-                <label for="pickupTime">Pickup Time:</label>
-                <select id="pickupTime" name="pickupTime">
-                    <option value="" disabled selected>Select Pickup Time ...</option>
-                    <option value="6AM">6 AM</option>
-                    <option value="9AM">9 AM</option>
-                    <option value="12PM">12 PM</option>
-                    <option value="3PM">3 PM</option>
-                    <option value="6PM">6 PM</option>
-                    <option value="9PM">9 PM</option>
-                </select>
+            <div class="form">
+                <form onsubmit="handleFormSubmit(event)">
+                    <label for="pickupLocation">Pickup Locations:</label>
+                    <select id="pickupLocation" name="pickupLocation" onchange="handleOptionSelect(this.value)">
+                        <option value="" disabled selected>Select Pickup Location ...</option>
+                        <option value="RailwayStation">Yonkers Railway Station</option>
+                        <option value="CrossCountyCenter">Cross County Center @ Macy's</option>
+                        <option value="BronxSubway">Yonkers Bronx Subway 238th Street</option>
+                    </select>
+                    <label for="pickupTime">Pickup Time:</label>
+                    <select id="pickupTime" name="pickupTime">
+                        <option value="" disabled selected>Select Pickup Time ...</option>
+                        <option value="6AM">6 AM</option>
+                        <option value="9AM">9 AM</option>
+                        <option value="12PM">12 PM</option>
+                        <option value="3PM">3 PM</option>
+                        <option value="6PM">6 PM</option>
+                        <option value="9PM">9 PM</option>
+                    </select>
 
-                <label for="specialInstructions">Special Instructions:</label>
-                <textarea id="specialInstructions" name="specialInstructions" class="textarea-style"></textarea><br>
+                    <label for="specialInstructions">Special Instructions:</label>
+                    <textarea id="specialInstructions" name="specialInstructions" class="textarea-style"></textarea><br>
 
-                <button type="button" onclick="document.getElementById('specialInstructions').value = ''">Clear
-                    Message</button><br><br>
-                <input type="submit" value="Schedule">
-            </form>
-            <script>
-                function handleFormSubmit(event) {
-                    event.preventDefault();
-                    const location = document.getElementById('pickupLocation').value;
-                    const time = document.getElementById('pickupTime').value;
-                    const message = document.getElementById('specialInstructions').value;
-                    if (!location || !time) {
-                        alert('Please select a pickup location and time.');
-                        return;
-                    }
+                    <button type="button" onclick="document.getElementById('specialInstructions').value = ''">Clear
+                        Message</button><br><br>
+                    <input type="submit" value="Schedule">
+                </form>
+                <script>
+                    function handleFormSubmit(event) {
+                        event.preventDefault();
+                        const location = document.getElementById('pickupLocation').value;
+                        const time = document.getElementById('pickupTime').value;
+                        const message = document.getElementById('specialInstructions').value;
+                        if (!location || !time) {
+                            alert('Please select a pickup location and time.');
+                            return;
+                        }
 
-                    const seatAvailability = JSON.parse(sessionStorage.getItem('seatAvailability')) || {
-                        "6AM": { "Yellow Shuttle": 10, "Blue Shuttle": 15 },
-                        "9AM": { "Red Shuttle": 0, "Black Shuttle": 12 },
-                        "12PM": { "Green Shuttle": 5, "Orange Shuttle": 10 },
-                        "3PM": { "Yellow Shuttle": 7, "Blue Shuttle": 9 },
-                        "6PM": { "Red Shuttle": 6, "Black Shuttle": 8 },
-                        "9PM": { "Green Shuttle": 4, "Orange Shuttle": 7 }
-                    };
+                        const seatAvailability = JSON.parse(sessionStorage.getItem('seatAvailability')) || {
+                            "6AM": { "Yellow Shuttle": 10, "Blue Shuttle": 15 },
+                            "9AM": { "Red Shuttle": 0, "Black Shuttle": 12 },
+                            "12PM": { "Green Shuttle": 5, "Orange Shuttle": 10 },
+                            "3PM": { "Yellow Shuttle": 7, "Blue Shuttle": 9 },
+                            "6PM": { "Red Shuttle": 6, "Black Shuttle": 8 },
+                            "9PM": { "Green Shuttle": 4, "Orange Shuttle": 7 }
+                        };
 
-                    // Decrement seat availability for the selected time and bus
-                    if (seatAvailability[time]) {
-                        const busKeys = Object.keys(seatAvailability[time]);
-                        if (busKeys.length > 0) {
-                            const selectedBus = busKeys.find(bus => seatAvailability[time][bus] > 0); // Find the first bus with available seats
-                            if (!selectedBus) {
-                                alert(`No buses have seats available for the selected time.`);
-                                return;
-                            }
-                            if (seatAvailability[time][selectedBus] > 0) {
-                                seatAvailability[time][selectedBus] -= 1;
-                                // Store the updated seat availability in sessionStorage
-                                sessionStorage.setItem('seatAvailability', JSON.stringify(seatAvailability));
+                        // Decrement seat availability for the selected time and bus
+                        if (seatAvailability[time]) {
+                            const busKeys = Object.keys(seatAvailability[time]);
+                            if (busKeys.length > 0) {
+                                const selectedBus = busKeys.find(bus => seatAvailability[time][bus] > 0); // Find the first bus with available seats
+                                if (!selectedBus) {
+                                    alert(`No buses have seats available for the selected time.`);
+                                    return;
+                                }
+                                if (seatAvailability[time][selectedBus] > 0) {
+                                    seatAvailability[time][selectedBus] -= 1;
+                                    // Store the updated seat availability in sessionStorage
+                                    sessionStorage.setItem('seatAvailability', JSON.stringify(seatAvailability));
 
-                                alert(`Seat assigned on ${selectedBus}. Remaining seats: ${seatAvailability[time][selectedBus]}`);
+                                    alert(`Seat assigned on ${selectedBus}. Remaining seats: ${seatAvailability[time][selectedBus]}`);
 
-                                window.location.href = "index.html"; // Redirect to the main page
-                            } else {
-                                alert(`No seats available on ${selectedBus} for the selected time.`);
+                                    window.location.href = "index.html"; // Redirect to the main page
+                                } else {
+                                    alert(`No seats available on ${selectedBus} for the selected time.`);
+                                }
                             }
                         }
                     }
-                }
 
-                function handleOptionSelect(option) {
-                    const imageMap = {
-                        "LaGuardia": "./images/LaGuardia_3.png",
-                        "JFK": "./images/JFK_1.png",
-                        "RailwayStation": "./images/YonkersStation.png",
-                        "CrossCountyCenter": "./images/CrossCenterMacys.png",
-                        "BronxSubway": "./images/YonkersSubway.png"
-                    };
+                    function handleOptionSelect(option) {
+                        const imageMap = {
+                            "LaGuardia": "./images/LaGuardia_3.png",
+                            "JFK": "./images/JFK_1.png",
+                            "RailwayStation": "./images/YonkersStation.png",
+                            "CrossCountyCenter": "./images/CrossCenterMacys.png",
+                            "BronxSubway": "./images/YonkersSubway.png"
+                        };
 
-                    const selectedImage = imageMap[option];
-                    if (selectedImage) {
-                        document.getElementById('pickupLocationImage').src = selectedImage;
+                        const selectedImage = imageMap[option];
+                        if (selectedImage) {
+                            document.getElementById('pickupLocationImage').src = selectedImage;
+                        }
                     }
-                }
-            </script>
-        </div>
-        <div>
-            <img src='' id="pickupLocationImage">
-            <script>
-                if (window.service && window.service.trim().toLowerCase() === "laguardia") {
-                    handleOptionSelect("LaGuardia");
-                } else {
-                    handleOptionSelect("JFK");
-                }
-            </script>
-        </div>
+                </script>
+            </div>
+            <div>
+                <img src='' id="pickupLocationImage">
+                <script>
+                    if (window.service && window.service.trim().toLowerCase() === "laguardia") {
+                        handleOptionSelect("LaGuardia");
+                    } else {
+                        handleOptionSelect("JFK");
+                    }
+                </script>
+            </div>
         </div>
 
     </div>

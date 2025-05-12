@@ -88,7 +88,7 @@ input[type=submit]:hover {
     padding: 20px;
     margin: 0 auto;
     width: 50%;
-    grid-column: 1; /* Place the form in the first column */
+    grid-column: 1;
 }
 
 .textarea-style {
