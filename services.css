@@ -1,0 +1,96 @@
+body {
+    background-color: #87AE73;
+    font-family: Arial;
+}
+
+
+#pickupLocationImage {
+    width: 350px;
+    height: auto;
+}
+
+.services-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 0px;
+    padding: 0px;
+}
+
+.justified-content {
+    text-align: justify;
+    margin: 10px;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 5px 7px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type=button] {
+    width: 100%;
+    background-color: rgba(0, 0, 255, 0.856);
+    color: white;
+    padding: 15px 20px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: rgba(0, 0, 255, 0.856);
+    color: white;
+    padding: 15px 20px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: blue;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    color: black;
+    text-align: center;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    grid-row: 2;
+    color: black;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.form {
+    border-radius: 5px;
+    background-color: #87AE73;
+    padding: 20px;
+    margin: 0 auto;
+    width: 50%;
+    grid-column: 1; /* Place the form in the first column */
+}
+
+.textarea-style {
+    resize: none;
+}

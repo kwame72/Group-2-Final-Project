@@ -1,0 +1,166 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <script>
+        // Load and insert the shared navigation bar before the page is rendered
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('shared-navbar-template.html');
+            const data = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const template = doc.getElementById('shared-navbar-template');
+            if (template) {
+                document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+            }
+        });        
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        window.service = urlParams.get("service"); // Make 'service' globally accessible
+
+        if (service === null) {
+            console.log("No service parameter found in the URL. We will default to JFK.");
+        }
+    </script>
+
+    <div class="services-grid-container">
+        <div class="about-content">
+            <img id="aboutContentImage" src="" alt="Service Image">
+            <h1 id="aboutContentTitle"></h1>
+            <p id="aboutContentDescription" class="justified-content"></p>
+
+            <script>
+                if (window.service && window.service.trim().toLowerCase() === "laguardia") {
+                    document.getElementById('aboutContentImage').src = "./images/LaGuardia_image.png";
+                    document.getElementById('aboutContentTitle').textContent = "LaGuardia Airport Services";
+                    document.getElementById('aboutContentDescription').textContent =
+                        "LaGuardia Airport - colloquially known as LaGuardia or simply LGA - is a civil airport in East Elmhurst, " +
+                        "Queens, New York City, situated on the northwestern shore of Long Island, bordering Flushing Bay. Covering " +
+                        "680 acres as of January 1, 2025, the facility was established in 1929, and began operating as a public " +
+                        "airport in 1939. It is named after Fiorello H. La Guardia, a former mayor of New York City.";
+                } else {
+                    document.getElementById('aboutContentImage').src = "./images/JFK_image.png";
+                    document.getElementById('aboutContentTitle').textContent = "JFK Airport Services";
+                    document.getElementById('aboutContentDescription').textContent =
+                        "John F. Kennedy International Airport (JFK) is one of the busiest airports in " +
+                        "the United States. It is located in Queens, New York, and is the primary international airport serving " +
+                        "New York City. JFK is a hub for domestic and international flights, and is a major gateway to the United " +
+                        "States. The airport is named after John F. Kennedy, the 35th President of the United States. The Yonkers " +
+                        "Airport Express bus service operates daily with the following schedule from Yonkers, NY to JFK Airport.";
+                    document.getElementById('pickupLocationImage').src = "./images/JFK_image.png";
+                }
+            </script>
+        </div>
+        <div class="main-content">
+        <div class="form">
+            <form onsubmit="handleFormSubmit(event)">
+                <label for="pickupLocation">Pickup Locations:</label>
+                <select id="pickupLocation" name="pickupLocation" onchange="handleOptionSelect(this.value)">
+                    <option value="" disabled selected>Select Pickup Location ...</option>
+                    <option value="RailwayStation">Yonkers Railway Station</option>
+                    <option value="CrossCountyCenter">Cross County Center @ Macy's</option>
+                    <option value="BronxSubway">Yonkers Bronx Subway 238th Street</option>
+                </select>
+                <label for="pickupTime">Pickup Time:</label>
+                <select id="pickupTime" name="pickupTime">
+                    <option value="" disabled selected>Select Pickup Time ...</option>
+                    <option value="6AM">6 AM</option>
+                    <option value="9AM">9 AM</option>
+                    <option value="12PM">12 PM</option>
+                    <option value="3PM">3 PM</option>
+                    <option value="6PM">6 PM</option>
+                    <option value="9PM">9 PM</option>
+                </select>
+
+                <label for="specialInstructions">Special Instructions:</label>
+                <textarea id="specialInstructions" name="specialInstructions" class="textarea-style"></textarea><br>
+
+                <button type="button" onclick="document.getElementById('specialInstructions').value = ''">Clear
+                    Message</button><br><br>
+                <input type="submit" value="Schedule">
+            </form>
+            <script>
+                function handleFormSubmit(event) {
+                    event.preventDefault();
+                    const location = document.getElementById('pickupLocation').value;
+                    const time = document.getElementById('pickupTime').value;
+                    const message = document.getElementById('specialInstructions').value;
+                    if (!location || !time) {
+                        alert('Please select a pickup location and time.');
+                        return;
+                    }
+
+                    const seatAvailability = JSON.parse(sessionStorage.getItem('seatAvailability')) || {
+                        "6AM": { "Yellow Shuttle": 10, "Blue Shuttle": 15 },
+                        "9AM": { "Red Shuttle": 0, "Black Shuttle": 12 },
+                        "12PM": { "Green Shuttle": 5, "Orange Shuttle": 10 },
+                        "3PM": { "Yellow Shuttle": 7, "Blue Shuttle": 9 },
+                        "6PM": { "Red Shuttle": 6, "Black Shuttle": 8 },
+                        "9PM": { "Green Shuttle": 4, "Orange Shuttle": 7 }
+                    };
+
+                    // Decrement seat availability for the selected time and bus
+                    if (seatAvailability[time]) {
+                        const busKeys = Object.keys(seatAvailability[time]);
+                        if (busKeys.length > 0) {
+                            const selectedBus = busKeys.find(bus => seatAvailability[time][bus] > 0); // Find the first bus with available seats
+                            if (!selectedBus) {
+                                alert(`No buses have seats available for the selected time.`);
+                                return;
+                            }
+                            if (seatAvailability[time][selectedBus] > 0) {
+                                seatAvailability[time][selectedBus] -= 1;
+                                // Store the updated seat availability in sessionStorage
+                                sessionStorage.setItem('seatAvailability', JSON.stringify(seatAvailability));
+
+                                alert(`Seat assigned on ${selectedBus}. Remaining seats: ${seatAvailability[time][selectedBus]}`);
+
+                                window.location.href = "index.html"; // Redirect to the main page
+                            } else {
+                                alert(`No seats available on ${selectedBus} for the selected time.`);
+                            }
+                        }
+                    }
+                }
+
+                function handleOptionSelect(option) {
+                    const imageMap = {
+                        "LaGuardia": "./images/LaGuardia_3.png",
+                        "JFK": "./images/JFK_1.png",
+                        "RailwayStation": "./images/YonkersStation.png",
+                        "CrossCountyCenter": "./images/CrossCenterMacys.png",
+                        "BronxSubway": "./images/YonkersSubway.png"
+                    };
+
+                    const selectedImage = imageMap[option];
+                    if (selectedImage) {
+                        document.getElementById('pickupLocationImage').src = selectedImage;
+                    }
+                }
+            </script>
+        </div>
+        <div>
+            <img src='' id="pickupLocationImage">
+            <script>
+                if (window.service && window.service.trim().toLowerCase() === "laguardia") {
+                    handleOptionSelect("LaGuardia");
+                } else {
+                    handleOptionSelect("JFK");
+                }
+            </script>
+        </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
