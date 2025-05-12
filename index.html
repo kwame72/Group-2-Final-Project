@@ -6,6 +6,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="navbar"></div>
+    <script>
+        // Load and insert the shared navigation bar before the page is rendered
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('shared-navbar-template.html');
+            const data = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const template = doc.getElementById('shared-navbar-template');
+            if (template) {
+                document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+            }
+        });
+    </script>
     <div>
         <h1>Bus Service from Yonkers to LaGuardia and JFK</h1>
         <div>
