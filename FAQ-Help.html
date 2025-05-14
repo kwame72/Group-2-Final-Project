@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,66 @@
   <link rel="stylesheet" href="faq-item.css">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+  <div id="navbar"></div>
+  <script>
+    // Load and insert the shared navigation bar before the page is rendered
+    document.addEventListener('DOMContentLoaded', async () => {
+      const response = await fetch('shared-navbar-template.html');
+      const data = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+      const template = doc.getElementById('shared-navbar-template');
+      if (template) {
+        document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+      }
+    });
+  </script>
   <main>
     <section id="faq">
       <h1>Frequently Asked Questions</h1>
-        <div class="faq-answer">
-          <p>This page answers your most common questions and lets you submit new ones!</p>
-        </div>
+      <div class="faq-answer">
+        <p>This page answers your most common questions and lets you submit new ones!</p>
+      </div>
       </div>
       <div class="faq-content">
         <h2>Booking & Cancellation</h2>
         <p><strong>1. How may I get a quote?</strong><br>
-        All trips have set prices; refer to the “Services” page. For Special Reservations quotes, call our Customer Care Center at 914-555-5341 or 844-555-7433. Pricing is subject to change without notice at any point between the quote request and the final booking.</p>
+          All trips have set prices; refer to the “Services” page. For Special Reservations quotes, call our Customer
+          Care Center at 914-555-5341 or 844-555-7433. Pricing is subject to change without notice at any point between
+          the quote request and the final booking.</p>
         <p><strong>2. How do I cancel my reservation?</strong><br>
-        We understand your travel plans may change, so we offer a very simple cancellation policy. Just give us 4 hours' notice before your pickup time, and a full refund will be provided. Refunds are not available for cancellations with less than 4 hours' notice or no-shows.</p>
+          We understand your travel plans may change, so we offer a very simple cancellation policy. Just give us 4
+          hours' notice before your pickup time, and a full refund will be provided. Refunds are not available for
+          cancellations with less than 4 hours' notice or no-shows.</p>
         <p><strong>3. Are tolls and bridge fees included in private booking costs?</strong><br>
-        Yes, tolls and bridge fees are included in the quoted fare.</p>
- 
+          Yes, tolls and bridge fees are included in the quoted fare.</p>
+
         <h2>General Questions</h2>
         <p><strong>1. What is your policy on traveling minors?</strong><br>
-        Children under 18 years of age must be accompanied by an adult.</p>
+          Children under 18 years of age must be accompanied by an adult.</p>
         <p><strong>2. Where do I find my shuttle?</strong><br>
-        There are three pickup locations:<br>
-        - Yonkers Railway Station, 5 Buena Vista Avenue, Yonkers, NY 10701<br>
-        - Cross County Center @ Macy’s, 800 Central Park Avenue, Yonkers, NY 10704<br>
-        - 238th Street Subway Station, West 238th Street, Bronx, NY 10466</p>
+          There are three pickup locations:<br>
+          - Yonkers Railway Station, 5 Buena Vista Avenue, Yonkers, NY 10701<br>
+          - Cross County Center @ Macy’s, 800 Central Park Avenue, Yonkers, NY 10704<br>
+          - 238th Street Subway Station, West 238th Street, Bronx, NY 10466</p>
         <p><strong>3. What are your hours of operation?</strong><br>
-        Yonkers Airport Express operates from 5:00 am to 9:00 pm.</p>
+          Yonkers Airport Express operates from 5:00 am to 9:00 pm.</p>
         <p><strong>4. How long is the commute?</strong><br>
-        Traveling between Yonkers to JFK is approximately 45 minutes, and LGA is approximately 90 minutes.</p>
+          Traveling between Yonkers to JFK is approximately 45 minutes, and LGA is approximately 90 minutes.</p>
         <p><strong>5. What are your methods of payment?</strong><br>
-        We accept Visa, MasterCard, American Express, Discover, Cash, Airline Vouchers, Travelers Checks, and Corporate Accounts (no personal checks).</p>
+          We accept Visa, MasterCard, American Express, Discover, Cash, Airline Vouchers, Travelers Checks, and
+          Corporate Accounts (no personal checks).</p>
         <p><strong>6. Can I get a shared ride to Manhattan?</strong><br>
-        Yes, we offer shared-ride shuttles to Manhattan to and from LGA and JFK airports. We also provide private or group chartered rides into Manhattan at competitive rates.</p>
+          Yes, we offer shared-ride shuttles to Manhattan to and from LGA and JFK airports. We also provide private or
+          group chartered rides into Manhattan at competitive rates.</p>
         <p><strong>7. Do you have service to all the counties in New Jersey?</strong><br>
-        We have private service to all the counties in New Jersey.</p>
+          We have private service to all the counties in New Jersey.</p>
         <p><strong>8. Do you have pick-up shuttle services from hotels and homes to the airports?</strong><br>
-        We provide shared ride service to New York City and Manhattan Hotels.</p>
+          We provide shared ride service to New York City and Manhattan Hotels.</p>
         <p><strong>9. I left something in the van. What do I do? Who do I contact?</strong><br>
-        Please contact our Customer Care Center for assistance.</p>
+          Please contact our Customer Care Center for assistance.</p>
       </div>
     </section>
     <section id="submit-question">
@@ -62,4 +84,5 @@
     </section>
   </main>
 </body>
+
 </html>
