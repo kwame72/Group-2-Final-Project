@@ -1,5 +1,12 @@
+
+<!-- Contact Us Page by Kenneth Ezell -->
+<!-- This page contains the contact information for the Yonkers Airport Express team. It includes a call to action, 
+     contact details, and a brief introduction to each team member. The page is styled with CSS and includes a shared 
+     navigation bar loaded via JavaScript. -->
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,89 +15,101 @@
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <script src='main.js'></script>
 </head>
-<div id="navbar"></div>
-<script>
-    // Load and insert the shared navigation bar before the page is rendered
-    document.addEventListener('DOMContentLoaded', async () => {
-        const response = await fetch('shared-navbar-template.html');
-        const data = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data, 'text/html');
-        const template = doc.getElementById('shared-navbar-template');
-        if (template) {
-            document.getElementById('navbar').appendChild(template.content.cloneNode(true));
-        }
-    });
-</script>
-<div></div>
 
-
-    <p>
-        <h1 class="contact-title">Get In Touch With Our Team!</h1>
-        
-        <div class="contact-container">
-            <div class="contact-image">
-                <img src="images/contact-us.jpg" alt="Contact Us" class="contact-us-img">
-            </div>
-            <div class="contact-box">
-                <h2>Give Us a Call!</h2>
-                <p class="contact">+1 (914) 555-1234</p>
-                <h2>Send Us an Email!</h2>
-                <p class="contact">CustomerService@YAE.com</p>
-                <h2>Follow Us on Social Media!</h2>
-                <p class="contact">Facebook: YonkersAirportExpress</p>
-                <p class="contact">Instagram: @YonkersAirportExpress</p>
-                <p class="contact">Twitter: @YAE</p>
-                <p class="contact">LinkedIn: Yonkers Airport Express</p>
-            </div>
-        </div>
-        
-        <div class="contact-container">
-            <div class="contact-box">
-                <h2>Our Address:</h2>
-                    <p class="contact">Yonkers Airport Express <br>123 Main St  <br>Yonkers, NY 10701</p>  
-             </div>  
-             <div class="contact-image">
-                <img src="images/building.jpg" alt="Contact Us" class="contact-us-img">  
-             </div>
-                                        
-            </div>
-        </div>
-
-        <div class="contact-member">
-            <h2 class="contact">Business Manager: Sean Smith</h2>
-            <img src="images/sean.png" alt="Sean Smith" class="contact-photo">            
-            <p class=>sean.smith@yae.com</p>
-        </div>
-      
-
-        <div class="contact-member">
-            <h2 class="contact">Operations Manager: Michael Morris</h2>
-            <img src="images/mike.png" alt="Michael Morris" class="contact-photo">            
-            <p>michael.morris@yae.com</p>
-        </div>
-
-        
-        <div class="contact-member">
-            <h2 class="contact">Customer Experience Manager: Daniel Effah Nyarko</h2>
-            <img src="images/daniel.jpg" alt="Daniel Effah Nyarko" class="contact-photo">            
-            <p>daniel.effahnyarko@yae.com</p>
-        </div>
-        
-
-        <div class="contact-member">
-            <h2 class="contact">Human Resource Manager: Kenneth Ezell</h2>
-            <img src="images/kenneth.jpg" alt="Kenneth Ezell" class="contact-photo">            
-            <p>kenneth.ezell@yae.com</p>
-        </div>
-
-        
-           
-         
-        
-
-    </p>
 <body>
+    <div id="navbar"></div>
+    <script>
+        // Load and insert the shared navigation bar before the page is rendered
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('shared-navbar-template.html');
+            const data = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const template = doc.getElementById('shared-navbar-template');
+            if (template) {
+                document.getElementById('navbar').appendChild(template.content.cloneNode(true));
+            }
+        });
+    </script>
+
+
+
+    <h1 class="contact-title">Get In Touch With Our Team!</h1>
+
+    <div class="contact-container">
+        <div class="contact-image">
+            <img src="images/contact-us.jpg" alt="Contact Us" class="contact-us-img">
+        </div>
+        <div class="contact-box">
+            <h2>Give Us a Call!</h2>
+            <p class="contact">+1 (914) 555-1234</p>
+            <h2>Send Us an Email!</h2>
+            <p class="contact">CustomerService@YAE.com</p>
+            <h2>Follow Us on Social Media!</h2>
+            <p class="contact">Facebook: YonkersAirportExpress</p>
+            <p class="contact">Instagram: @YonkersAirportExpress</p>
+            <p class="contact">Twitter: @YAE</p>
+            <p class="contact">LinkedIn: Yonkers Airport Express</p>
+        </div>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-box">
+            <h2>Our Address:</h2>
+            <p class="contact">Yonkers Airport Express <br>123 Main St <br>Yonkers, NY 10701</p>
+        </div>
+        <div class="contact-image">
+            <img src="images/building.jpg" alt="building" class="contact-us-img">
+        </div>
+
+    </div>
     
+
+    <div class="contact-member">
+        <h2 class="contact">Business Manager: Sean Smith</h2>
+        <img src="images/sean.png" alt="Portrait of Sean Smith" class="contact-photo">
+        <p>sean.smith@yae.com</p>
+        <p>Sean keeps the wheels turning—literally and figuratively. With years of experience in transportation
+            logistics, he ensures Yonkers Airport Express stays ahead of the curve. When he's not crunching numbers,
+            he’s probably planning his next vacation (ironic, right?) or searching for the perfect coffee blend to fuel
+            his day</p>
+    </div>
+
+
+    <div class="contact-member">
+        <h2 class="contact">Operations Manager: Michael Morris</h2>
+        <img src="images/mike.png" alt="Michael Morris" class="contact-photo">
+        <p>michael.morris@yae.com</p>
+        <p>Michael is the mastermind behind the shuttle schedules, making sure every ride runs like a well-oiled
+            machine. With a background in fleet management, he’s the guy who makes "on-time arrival" more than just a
+            promise. Rumor has it he once mapped out a subway route just for fun—we don’t ask questions.
+        </p>
+    </div>
+
+
+    <div class="contact-member">
+        <h2 class="contact">Customer Experience Manager: Daniel Effah Nyarko</h2>
+        <img src="images/daniel.jpg" alt="Daniel Effah Nyarko" class="contact-photo">
+        <p>daniel.effahnyarko@yae.com</p>
+        <p>Daniel is all about turning a simple shuttle ride into an experience worth remembering. Whether it’s
+            assisting with bookings or ensuring customer smiles, he’s got it covered. A self-proclaimed “airport guru,”
+            he knows terminal layouts better than most pilots. Need travel tips? Daniel has a secret stash of them.</p>
+    </div>
+
+
+    <div class="contact-member">
+        <h2 class="contact">Human Resource Manager: Kenneth Ezell</h2>
+        <img src="images/kenneth.jpg" alt="Kenneth Ezell" class="contact-photo">
+        <p>kenneth.ezell@yae.com</p>
+        <p>Kenneth makes sure the team stays happy, motivated, and ready to roll. With a talent for turning workplace
+            challenges into opportunities, he’s the go-to guy for all things HR. He insists he has a “system” for
+            remembering everyone's birthdays, but we suspect it’s just an elaborate spreadsheet.</p>
+    </div>
+
+
+
+
+
 </body>
+
 </html>
