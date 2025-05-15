@@ -9,6 +9,7 @@
     <div id="navbar"></div>
     <script>
         // Load and insert the shared navigation bar before the page is rendered
+
         document.addEventListener('DOMContentLoaded', async () => {
             const response = await fetch('shared-navbar-template.html');
             const data = await response.text();
@@ -20,12 +21,95 @@
             }
         });
     </script>
-    <div>
-        <h1>Bus Service from Yonkers to LaGuardia and JFK</h1>
-        <div>
-            <p>Our bus service is the best way to travel from Yonkers to LaGuardia and JFK. We offer a comfortable and convenient way to get to the airport. Our buses are equipped with free Wi-Fi, power outlets, and comfortable seats. We also offer a variety of amenities to make your trip more enjoyable, including snacks and drinks. Our drivers are experienced and professional, and will ensure that you arrive at the airport on time. Book your ticket today and experience the best way to travel from Yonkers to Laguardia and JFK.</p>
-        </div>
-        <br/>
-    </div>
+       <header>
+        <h1>Yonkers Airport Express</h1>
+       
+    </header>
+
+    <section class="hero">
+        <img src="images/Big Shuttle Bus.jpg" alt="Shuttle Bus Image 1">
+        <h2>Reliable & Affordable Transportation to JFK and LaGuardia</h2>
+    </section>
+
+    <section id="about" class="info-section">
+        <h2>Our Services</h2>
+        <p>We provide safe, efficient, convenient, and affordable shuttle transportation from Yonkers to New York City Airports. Our buses are equipped with free Wi-Fi, power outlets, and comfortable seats. We also offer a variety of amenities to make your trip more enjoyable, including snacks and drinks. Our drivers are experienced and professional, and will ensure that you arrive at the airport on time. Book your ticket today and experience the best way to travel from Yonkers to LaGuardia and JFK.Our modern fleet and friendly drivers are here to make your journey easy and enjoyable.</p>
+        <img src="images/Bus Interior.jpg">
+    </section>
+
+    <section id="services" class="info-section">
+        <h2>Our Route Schedule</h2>
+         <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Pick-Up Locations</th>
+        <th>Drop-Off Locations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>6:00 AM</td>
+        <td>Yonkers Railway Station</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>6:20 AM</td>
+        <td>Cross County Mall</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>6:40 AM</td>
+        <td>238th St. Subway Station</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>9:00 AM</td>
+        <td>Yonkers Railway Station</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>9:20 AM</td>
+        <td>Cross County Mall</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>9:40 AM</td>
+        <td>238th St. Subway Station</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>12:00 PM</td>
+        <td>Yonkers Railway Station</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>12:20 PM</td>
+        <td>Cross County Mall</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+      <tr>
+        <td>12:40 PM</td>
+        <td>238th St. Subway Station</td>
+        <td>LaGuardia and JFK Airport</td>
+      </tr>
+    </tbody>
+  </table>
+        <ul>The shuttle runs very 3 hours. First shuttle is at 6 AM and last shuttle is at 9 PM.</ul>
+           
+ 
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Email: info@yae.com</p>
+        <p>Phone: (914) 555-2554</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Yonkers Airport Express</p>
+    </footer>
+       
+
 </body>
 </html>
