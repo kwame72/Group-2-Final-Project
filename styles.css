@@ -169,3 +169,71 @@ li:hover .submenu {
 .contact-title {
     text-align: center;
 }
+
+
+header {
+    background-color: #4682b4;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+.hero {
+    text-align: center;
+    
+    padding: 10px;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info-section, .contact-section {
+    padding: 40px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.info-section img {
+    max-width: 80%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #4682b4;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #4682b4;
+      color: white;
+    }
