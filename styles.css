@@ -199,6 +199,9 @@ header {
     height: auto;
     border-radius: 10px;
 }
+#hero img2 {max-width: 50%;
+    height: 60px;
+    border-radius: 10px}
 
 .info-section,
 .contact-section {
@@ -241,4 +244,10 @@ td {
 th {
     background-color: #4682b4;
     color: white;
+}
+#hmpghder {
+    background-color: #4682b4;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
 }
